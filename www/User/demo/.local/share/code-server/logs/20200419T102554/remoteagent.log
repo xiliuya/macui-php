@@ -1,0 +1,5 @@
+[2020-04-19 10:25:54.847] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/User/demo/.local/share/code-server/Machine'
+[2020-04-19 10:25:58.408] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/User/demo/.local/share/code-server/User'
+[2020-04-19 10:25:58.408] [remoteagent] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/root/User/demo/.local/share/code-server/User'
+[2020-04-19 10:25:58.413] [remoteagent] [error] /root/User/demo/.local/share/code-server/extensions {"errno":-2,"code":"ENOENT","syscall":"scandir","path":"/root/User/demo/.local/share/code-server/extensions"}
+[2020-04-19 10:27:01.488] [remoteagent] [error] /root/User/demo/.local/share/code-server/extensions {"errno":-2,"code":"ENOENT","syscall":"scandir","path":"/root/User/demo/.local/share/code-server/extensions"}

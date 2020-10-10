@@ -1,0 +1,1 @@
+<?php exit;?>{"font_size":"14px","theme":"tomorrow","auto_wrap":1,"auto_complete":1,"function_list":1,"tab_size":4,"soft_tab":1,"display_char":0,"font_family":"Menlo","keyboard_type":"ace"}

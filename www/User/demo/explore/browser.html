@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IFrame</title>
+  <link rel="stylesheet" type="text/css" href="style.css" title="style"/>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+<body onload="onload();">
+  <ul>
+    <li><input class="menu" id="txtUrl" value="http://" placeholder="Enter Website Address" name="url" type="text" onkeypress="setBrowserFrameSourceCheck(event)" autocomplete="off"/></li>
+    <li><a class="menu" id="go" onclick="setBrowserFrameSource();">Go</a></li>
+    <li class="dropdown">
+      <a class="menu" id="bookmarks" href="javascript:void(0)" class="dropbtn">Bookmarks</a>
+      <div class="dropdown-content">
+        <a id="top" onclick="setBrowserFrameSourceToBookmark10()">aidlearning.net</a>
+        <a onclick="setBrowserFrameSourceToBookmark0()">baidu.com</a>
+        <a onclick="setBrowserFrameSourceToBookmark1()">bing.com</a>
+        <a onclick="setBrowserFrameSourceToBookmark2()">Narwhale.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark3()">Skribbl.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark4()">Slither.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark5()">Club Penguin</a>
+        <a onclick="setBrowserFrameSourceToBookmark6()">Secret Hitler</a>
+        <a onclick="setBrowserFrameSourceToBookmark7()">Minesweeper</a>
+        <a onclick="setBrowserFrameSourceToBookmark8()">Youtube Download</a>
+        <a id="bottom" onclick="setBrowserFrameSourceToBookmark9()">Info</a>
+      </div>
+    </li>
+  </ul>
+  <div align="center">
+  <iframe id="browser" name="browser" loadeddata="load();" frameBorder="0" scrolling="auto" noresize></iframe> <br/>
+  <script type="text/javascript">
+  document.getElementById("browser").onload = function() {
+    var browserFrame = document.getElementById("browser");
+    location.hash = browserFrame.src;
+  }
+  </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!--<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>-->
+
+<script type="text/javascript">
+    //判断一个url是否可以访问
+    // let headers = new Headers();
+    // headers.append('Origin','http://localhost:8008');
+    var os = function (){
+        var ua = navigator.userAgent,
+        isWindowsPhone = /(?:Windows Phone)/.test(ua),
+        isSymbian = /(?:SymbianOS)/.test(ua) || isWindowsPhone,
+        isAndroid = /(?:Android)/.test(ua),
+        isFireFox = /(?:Firefox)/.test(ua),
+        isChrome = /(?:Chrome|CriOS)/.test(ua),
+        isTablet = /(?:iPad|PlayBook)/.test(ua) || (isAndroid && !/(?:Mobile)/.test(ua)) || (isFireFox && /(?:Tablet)/.test(ua)),
+        isPhone = /(?:iPhone)/.test(ua) && !isTablet,
+        isPc = !isPhone && !isAndroid && !isSymbian;
+        return {
+            isTablet: isTablet,
+            isPhone: isPhone,
+            isAndroid: isAndroid,
+            isPc: isPc
+        };
+    }();
+    function IsLoad(_url,fun){
+      $.ajax({
+          url:_url,
+          type:"get",
+          cache: false,
+          dataType: "jsonp", //跨域采用jsonp方式 
+          processData: false,
+          timeout:4000, 
+          complete: function (data) {
+              if (data.status==200) {
+                  fun(true);
+              }
+              else
+              {
+                  fun(false);
+              }
+          }
+        //   success:function(){
+        //     //说明请求的url存在，并且可以访问
+        //     if($.isFunction(fun)){
+        //             fun(true);
+        //           }
+        //   },
+          
+        // error:function(){
+        //   //说明请求的url不存在
+        //   if($.isFunction(fun)){
+        //     fun(false);
+        //   }
+        // }
+          
+        });
+    }
+    //调用
+    surl='http://'+window.location.hostname+':8081';
+    window.location.href = 'http://'+window.location.hostname+':8081';
+    // IsLoad(surl,function(res){
+    //     srurl='http://'+window.location.hostname+':8082';
+    //     if(res)
+    //     {
+    //         // if(os.isPc)
+    //         //     document.write("</iframe><iframe src='http://"+window.location.hostname+":8082' rel='nofollow' scrolling='no' frameborder='0' width='100%' height='100%'>");
+    //         // else 
+    //         window.location.href =surl;
+    //     }
+    //     else
+    //     {
+    //         document.write("VSCode not installed or Service not started,pls go to <a href='"+srurl+"' >Service</a> to install or start the VSCode service." );
+    //     }
+    // });
+    
+    //document.write("</iframe><iframe src='http://"+window.location.hostname+":8008' rel='nofollow' scrolling='no' frameborder='0' width='100%' height='100%'>");
+    //window.location.href = 'http://'+window.location.hostname+':8008';
+    // 2秒以后再跳转
+    //setTimeout("javascript:location.href='http://"+window.location.hostname+":8008'", 2000);   
+</script>

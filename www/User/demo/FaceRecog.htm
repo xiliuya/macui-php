@@ -1,0 +1,20 @@
+<script>
+// function open_win() {
+// 	window.open("http://"+window.location.hostname+":8900/home/cvs/webcam.py~editor");
+// }
+
+// function open_home() {
+// 	window.open("http://"+window.location.hostname+":8000");
+// }
+// open_win();
+
+// setTimeout("javascript:window.open('http://127.0.0.1:8000');", 2000);  
+    window.location.href = "http://"+window.location.hostname+":8900/home/facencnn/faceID.py~editor"
+    // 五秒以后再跳转
+    setTimeout("javascript:location.href='http://"+window.location.hostname+":8900/home/facencnn/faceID.py~editor'", 2000);  
+    
+</script>
+
+<form>
+    <input type="button" value="关闭窗口" onclick="open_home();">
+</form>

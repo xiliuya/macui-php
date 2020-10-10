@@ -1,0 +1,294 @@
+<script type="text/javascript">
+    // window.location.href = 'http://'+window.location.hostname+':8900/usr/local/lib/python2.7/dist-packages/EditOnline/www/viaStart-master/index.html';
+    window.location.href = 'http://'+window.location.hostname+':8900/usr/local/lib/python2.7/dist-packages/EditOnline/www/Web-Browser/index.html';
+    // 2秒以后再跳转
+    setTimeout("javascript:location.href='http://"+window.location.hostname+":8900//usr/local/lib/python2.7/dist-packages/EditOnline/www/Web-Browser/index.html'", 2000);   
+</script>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IFrame</title>
+  <!-- <link rel="stylesheet" type="text/css" href="style.css" title="style"/> -->
+  <style type="text/css">
+    
+    body {
+      background-color: #383838;
+      margin: 0vw;
+    }
+
+    h1, h2, h3 {
+      color: #b1b6bd;
+      margin:2vw;
+      font-family: "Roboto";
+    }
+
+    a#go {
+      background-color: #18191c;
+    }
+
+    a#go:hover, a#bookmarks:hover {
+      background-color: #27292e;
+    }
+
+    li a, .dropbtn {
+      display: inline-block;
+      color: #b1b6bd;
+      text-align: center;
+      padding: 0.6vh 2vw;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    input[type=text], ::placeholder {
+      width:50vw;
+      background-color: #18191c;
+      border: 0;
+      color: #b1b6bd;
+      padding: 0.9vh 1vw;
+      outline: none;
+    }
+
+    a#bookmarks {
+      background-color: #18191c;
+      color: #b1b6bd;
+    }
+
+    @font-face {
+      font-family: "Roboto";
+      src: url(Roboto-Regular.ttf) format("truetype");
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      /* transform: translateY(-3%); */
+      background-color: #202225;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    li a:hover, .dropdown:hover .dropbtn {
+      background-color: #31353b;
+      border-radius: 20px;
+    }
+
+    .dropdown-content a {
+      color: #b1b6bd;
+      padding: 0.6vh 2vw;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      overflow: hidden;
+      align: center;
+      display:table;
+      margin: 0 auto;
+    }
+
+    li {
+      float: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #31353b;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    #top {
+      padding-top: 0.8vh;
+    }
+
+    #bottom {
+      padding-bottom: 1vh;
+    }
+
+    ::placeholder {
+      padding: 0;
+    }
+
+    .menu {
+      margin-left: 0.5vw;
+      margin-right: 0.5vw;
+      margin-top: 1vh;
+      margin-bottom: 1vh;
+    }
+
+    .menu, .dropdown-content {
+      border-radius: 15px;
+    }
+
+    #bookmarks {
+      margin-bottom: 0vh;
+    }
+
+    #info {
+      position: relative;
+      margin-top: 30vh;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    h1#title, h3 {
+      text-align: center;
+    }
+
+    iframe {
+      height: 93.9vh;
+      width: 100vw;
+      background-color: #fff;
+    }
+
+  </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" >
+    // On load, checks hash for url to load
+function onload() {
+  var browserFrame = document.getElementById("browser");
+  // Loads info page by default
+  if (location.hash === "") {
+    browserFrame.src = "http://127.0.0.1:8900/usr/local/lib/python2.7/dist-packages/EditOnline/www/viaStart-master/index.html";
+  } else {
+    var url = location.hash;
+    url = url.substr(1);
+    browserFrame.src = url;
+  }
+}
+
+// Checks if enter key is pressed on text field
+function setBrowserFrameSourceCheck(key){
+  if(key.keyCode === 13){
+    key.preventDefault();
+    var browserFrame = document.getElementById("browser");
+    if(document.getElementById("txtUrl").value === "style.css"){
+    } else if (document.getElementById("txtUrl").value === "script.js") {
+    } else if (document.getElementById("txtUrl").value === ".git") {
+    } else {
+      setBrowserFrameSource();
+    }
+  }
+}
+
+// Changes source of IFrame
+function setBrowserFrameSource(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = document.getElementById("txtUrl").value;
+  if (document.getElementById("txtUrl").value === "") {
+    browserFrame.src = "blank.html";
+  }
+}
+
+// Makes bookmarks direct to specific sites
+function setBrowserFrameSourceToBookmark0(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://www.baidu.com/";
+}
+// Makes bookmarks direct to specific sites
+function setBrowserFrameSourceToBookmark10(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "http://www.aidlearning.net/";
+}
+// Makes bookmarks direct to specific sites
+function setBrowserFrameSourceToBookmark1(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://www.bing.com//";
+}
+
+function setBrowserFrameSourceToBookmark2(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://narwhale.io";
+}
+
+function setBrowserFrameSourceToBookmark3(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://skribbl.io/";
+}
+
+function setBrowserFrameSourceToBookmark4(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://slither.io";
+}
+
+function setBrowserFrameSourceToBookmark5(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://play.cprewritten.net";
+}
+
+function setBrowserFrameSourceToBookmark6(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://secret.ethanl.ee/";
+}
+
+function setBrowserFrameSourceToBookmark7(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "http://birrell.org/andrew/minesweeper/";
+}
+
+function setBrowserFrameSourceToBookmark8(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "https://ytmp3.cc";
+}
+
+function setBrowserFrameSourceToBookmark9(){
+  var browserFrame = document.getElementById("browser");
+  browserFrame.src = "IFrame-info.html";
+}
+
+// Back and forth buttons change history
+function goBack() {
+  window.history.back();
+}
+
+function goForward() {
+  window.history.forward();
+}
+</script>
+</head>
+<body onload="onload();">
+  <ul>
+    <li><input class="menu" id="txtUrl" value="http://www.aidlearning.net" placeholder="Enter Website Address" name="url" type="text" onkeypress="setBrowserFrameSourceCheck(event)" autocomplete="off"/></li>
+    <li><a class="menu" id="go" onclick="setBrowserFrameSource();">Go</a></li>
+    <li class="dropdown">
+      <a class="menu" id="bookmarks" href="javascript:void(0)" class="dropbtn">Bookmarks</a>
+      <div class="dropdown-content">
+        <a id="top" onclick="setBrowserFrameSourceToBookmark10()">aidlearning.net</a>
+        <a onclick="setBrowserFrameSourceToBookmark0()">baidu.com</a>
+        <a onclick="setBrowserFrameSourceToBookmark1()">bing.com</a>
+        <a onclick="setBrowserFrameSourceToBookmark2()">Narwhale.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark3()">Skribbl.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark4()">Slither.io</a>
+        <a onclick="setBrowserFrameSourceToBookmark5()">Club Penguin</a>
+        <a onclick="setBrowserFrameSourceToBookmark6()">Secret Hitler</a>
+        <a onclick="setBrowserFrameSourceToBookmark7()">Minesweeper</a>
+        <a onclick="setBrowserFrameSourceToBookmark8()">Youtube Download</a>
+        <a id="bottom" onclick="setBrowserFrameSourceToBookmark9()">Info</a>
+      </div>
+    </li>
+  </ul>
+  <div align="center">
+  <iframe id="browser" name="browser" loadeddata="load();" frameBorder="0" scrolling="auto" noresize></iframe> <br/>
+  <script type="text/javascript">
+  document.getElementById("browser").onload = function() {
+    var browserFrame = document.getElementById("browser");
+    location.hash = browserFrame.src;
+  }
+  </script>
+  </div>
+</body>
+</html>
